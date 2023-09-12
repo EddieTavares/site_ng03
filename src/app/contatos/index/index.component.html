@@ -1,0 +1,33 @@
+
+
+<div class="d-flex justify-content-between">
+    <h1>Contatos</h1>
+    <span class="mt-2">
+        <a class="btn btn-primary" [routerLink]="['/contato/create']">Cadastrar</a>
+    </span>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor="let contato of contatos">
+            <td>{{contato.id}}</td>
+            <td>{{contato.nome}}</td>
+            <td>{{contato.email}}</td>
+            <td> 
+                <button class="btn btn-sm btn-danger  mx-1" (click)="excluir(contato.id)">Excluir</button> 
+                <a class="btn btn-sm btn-primary mx-1" [routerLink]="['/contato/edit/', contato.id]">Editar</a>
+                <a class="btn btn-sm btn-success mx-1" [routerLink]="['/contato/view/', contato.id]">Detalhes</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

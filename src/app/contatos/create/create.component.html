@@ -1,0 +1,58 @@
+<form [formGroup]="form" (ngSubmit)="salvar()">
+
+    <h1>Novo contato</h1>
+
+    <label class="form-label d-flex justify-content-between">Nome
+        <!-- <span class="text-danger" *ngIf="f['nome'].errors && f['nome'].touched" >
+            <b>Nome inválido</b>
+        </span> -->
+
+
+        <span class="text-danger" *ngIf="f['nome'].touched && f['nome'].errors && f['nome'].errors['required']">
+            <b>Nome obrigatório</b>
+        </span>
+
+        <span class="text-danger" *ngIf="f['nome'].touched && f['nome'].errors && f['nome'].errors['minlength']">
+            <b>O nome precisa ter mais de 5 caracteres</b>
+        </span>
+
+        <span class="text-danger" *ngIf="f['nome'].touched && f['nome'].errors && f['nome'].errors['maxlength']">
+            <b>O nome não pode exceder 60 caracteres</b>
+        </span>
+
+    </label>
+
+    <input 
+        class="form-control"
+        type="text"
+        formControlName="nome"
+    >
+
+    <label class="form-label d-flex justify-content-between">Email
+
+        <!-- <span class="text-danger" *ngIf="f['email'].errors && f['email'].touched" >
+            <b>Email inválido</b>
+        </span> -->
+
+
+        <span class="text-danger" *ngIf="f['email'].touched && f['email'].errors && f['email'].errors['required']">
+            <b>Email obrigatório</b>
+        </span>
+
+        <span class="text-danger" *ngIf="f['email'].touched && f['email'].errors && f['email'].errors['email']">
+            <b>Email inválido</b>
+        </span>
+    </label>
+
+    <input 
+        class="form-control"
+        type="email"
+        formControlName="email"
+    >
+
+    <div class="text-center mt-2">
+        <input class="btn btn-success m-1" type="submit" value="Salvar" [disabled]="!form.valid">
+        <a class="btn btn-primary m-1" routerLink="/contato/index/">Voltar</a>    
+    </div>
+
+</form>

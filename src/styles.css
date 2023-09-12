@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+#home {
+    background-color: rgb(33, 37, 41);
+    color: white;
+}
+
+#sobre {
+    background-color: rgb(5, 52, 54);
+    color: white;
+}
+
+#aside {
+    background-color: chocolate;
+}
